@@ -17,7 +17,18 @@ menu "RuuviTag Gateway Configuration"
     config RUUVI_GW_MQTT_CLIENT_ID
       string "MQTT Client ID"
       default "ruuvi-gw-esp32"
-    
+
+    config RUUVI_GW_MQTT_CLIENT_AUTH
+      bool "MQTT Client Authentication"
+
+    config RUUVI_GW_MQTT_CLIENT_USER
+      string "MQTT Client Username"
+      default "someusername"
+
+    config RUUVI_GW_MQTT_CLIENT_PASS
+      string "MQTT Client Password"
+      default "somepassword"
+
     config RUUVI_GW_MQTT_TOPIC
       string "MQTT Topic"
 
