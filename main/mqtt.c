@@ -205,12 +205,9 @@ esp_err_t ruuvi_gw_mqtt_init()
     #endif
   #endif
 
-  #if RUUVI_GW_MQTT_CLIENT_AUTH
-    mqtt_cfg.username = (const char *)RUUVI_GW_MQTT_CLIENT_USER;
-    mqtt_cfg.password = (const char *)RUUVI_GW_MQTT_CLIENT_PASS;
-    mqtt_cfg.credentials.username = (const char *)RUUVI_GW_MQTT_CLIENT_USER;
-    mqtt_cfg.credentials.authentication.password = (const char *)RUUVI_GW_MQTT_CLIENT_PASS;
-    mqtt_cfg.authentication.password = (const char *)RUUVI_GW_MQTT_CLIENT_PASS;
+  #if CONFIG_RUUVI_GW_MQTT_CLIENT_AUTH
+    mqtt_cfg.credentials.username = CONFIG_RUUVI_GW_MQTT_CLIENT_USER;
+    mqtt_cfg.credentials.authentication.password = CONFIG_RUUVI_GW_MQTT_CLIENT_PASS;
   #endif
 
   ruuvi_gw_mqtt_client = esp_mqtt_client_init(&mqtt_cfg);
